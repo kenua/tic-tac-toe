@@ -112,3 +112,108 @@ tictactoe.fillCell(2, 0, 1);
 console.log(tictactoe.getBoardStr());
 console.log(tictactoe.checkWinner()); // true
 */
+
+const Player = function(name = 'player', symbolType = 0) {
+   let _name = name;
+   let _points = 0;
+   let _symbol = symbolType;
+
+   const getName = function() {
+      return _name;
+   };
+
+   const getPoints = function() {
+      return _points;
+   }
+
+   const getSymbol = function() {
+      return _symbol;
+   }
+
+   const increasePoints = function() {
+      _points++;
+      return this;
+   };
+
+   return { getName, getPoints, getSymbol, increasePoints, };
+};
+
+const gameFlow = (function() {
+   let _player1 = null;
+   let _player2 = null;
+   let _playerTurn = null;
+
+   const setup = function(p1Name = 'player 1', p2Name = 'player 2') {
+      _player1 = Player(p1Name, 0);
+      _player2 = Player(p2Name, 1);
+      _playerTurn = _player1;
+      return this;
+   };
+
+   const playerWon = function() {
+      let didPlayerWon = tictactoe.checkWinner();
+
+      if (didPlayerWon) {
+         _playerTurn.increasePoints();
+         return true;
+      }
+
+      return false;
+   };
+
+   const takeTurn = function(row, column) {
+      let winnerName = null;
+
+      tictactoe.fillCell(row, column, _playerTurn.getSymbol());
+
+      if (playerWon()) {
+         winnerName = _playerTurn.getName();
+         tictactoe.cleanBoard();
+      }
+
+      _playerTurn = (_playerTurn === _player1) ? _player2 : _player1;
+      return (winnerName) ? winnerName : this;
+   };
+
+   const getPlayersInfo = function() {
+      if (_player1 && _player2) {
+         return {
+            player1: {
+               name: _player1.getName(),
+               points: _player1.getPoints(),
+            },
+            player2: {
+               name: _player2.getName(),
+               points: _player2.getPoints(),
+            },
+         }
+      }
+
+      return null;
+   };
+
+   return { setup, playerWon, takeTurn, getPlayersInfo };
+})();
+
+/*
+gameFlow.setup();
+
+gameFlow.takeTurn(0,0);
+gameFlow.takeTurn(1,0);
+
+gameFlow.takeTurn(0,1);
+gameFlow.takeTurn(1,1);
+
+console.log(tictactoe.getBoardStr());
+
+console.log(gameFlow.takeTurn(0,2));
+gameFlow.takeTurn(1,2);
+
+gameFlow.takeTurn(0,2);
+gameFlow.takeTurn(1,1);
+gameFlow.takeTurn(0,2);
+gameFlow.takeTurn(1,0);
+
+console.log(tictactoe.getBoardStr());
+console.log(gameFlow.getPlayersInfo());
+*/
