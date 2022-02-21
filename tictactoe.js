@@ -31,9 +31,10 @@ const tictactoe = (function() {
 
       if (_board[row] && _board[row][column] !== undefined && _board[row][column] === 0) {
          _board[row][column] = symbol;
+         return this;
       }
 
-      return this;
+      return false;
    };
 
    const checkWinner = function() {
@@ -164,7 +165,7 @@ const gameFlow = (function() {
    const takeTurn = function(row, column) {
       let winnerName = null;
 
-      tictactoe.fillCell(row, column, _playerTurn.getSymbol());
+      if ( !tictactoe.fillCell(row, column, _playerTurn.getSymbol()) ) return this;
 
       if (playerWon()) {
          winnerName = _playerTurn.getName();
@@ -178,6 +179,11 @@ const gameFlow = (function() {
    const getPlayersInfo = function() {
       if (_player1 && _player2) {
          return {
+            playerTurn: {
+               name: _playerTurn.getName(),
+               points: _player1.getPoints(),
+               symbol: _playerTurn.getSymbol(),
+            },
             player1: {
                name: _player1.getName(),
                points: _player1.getPoints(),
