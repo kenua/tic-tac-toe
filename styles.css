@@ -1,0 +1,134 @@
+.button {
+   text-transform: uppercase;
+   background-color: white;
+   font-family: 'Anonymous Pro', monospace;
+   font-weight: bold;
+   padding: .6rem 2rem;
+   border: 3px solid black;
+   display: inline-block;
+   cursor: pointer;
+   transition: background-color 250ms ease-in-out,
+               color 250ms ease-in-out;
+}
+
+.button:hover, .button:focus {
+   background-color: black;
+   color: white;
+}
+
+/* # MODAL */
+.modal {
+   background-color: white;
+   text-align: center;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 11;
+}
+
+.modal input {
+   padding: .6rem;
+   border: 3px solid black;
+
+}
+
+.modal h1 {
+   margin-bottom: .5rem;
+}
+
+.modal h1 ~ input {
+   margin-bottom: 2rem;
+}
+
+.tictactoe-container {
+   width: 100%;
+   height: 100%;
+   min-height: 600px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+}
+
+.tictactoe-container .button {
+   margin-top: 2rem;
+}
+
+.tictacto-grid-board {
+   background-color: #d6d3d3;
+   display: grid;
+   gap: 6px;
+   grid-template-columns: repeat(3, 80px);
+   grid-auto-rows: 80px;
+}
+
+.board__cell {
+   text-indent: -9999px;
+   background-color: white;
+   background-position: center;
+   background-size: 40px;
+   background-repeat: no-repeat;
+   border: none;
+   display: block;
+   cursor: pointer;
+   transition: background-color 250ms ease-in-out;
+}
+
+.board__cell::before {
+   content: "Cell ";
+}
+
+.board__cell:hover {
+   background-color: #eeeeee;
+}
+
+.players-info-container {
+   margin-top: 2rem;
+}
+
+.player__info {
+   font-family: 'Anonymous Pro', monospace;
+   font-weight: bold;
+   text-transform: capitalize;
+   margin-bottom: 1.3rem;
+}
+
+.player__info p:first-child {
+   margin-bottom: .3rem;
+   display: flex;
+   align-items: center;
+}
+
+.player__img {
+   width: 15px;
+   margin-left: 1rem;
+   display: block;
+}
+
+@media screen and (min-width: 800px) {
+   .tictacto-grid-board {
+      z-index: 10;
+   }
+
+   .players-info-container {
+      width: 100%;
+      padding: 0 1rem;
+      margin-top: 0;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+   }
+
+   .player__info {
+      margin-bottom: 0;
+   }
+}

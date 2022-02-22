@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Kenua">
+   <title>Tic-Tac-Toe</title>
+   <!-- GOOGLE FONTS-->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+   <!-- CUSTOM -->
+   <link rel="stylesheet" href="resets.css">
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <div class="modal">
+      <div>
+         <h1>Player 1 Name</h1>
+         <input type="text" id="player1-name-input" placeholder="player 1" value="player 1">
+   
+         <h1>Player 2 Name</h1>
+         <input type="text" id="player2-name-input" placeholder="player 2" value="player 2">
+   
+         <p><button type="button" id="start-button" class="button" title="Start game!">Start</button></p>
+      </div>
+   </div>
+
+   <section class="tictactoe-container">
+      <div class="tictacto-grid-board">
+         <button type="button" class="board__cell" data-cell-position="0 0" style="background-image: url(images/circle.svg)">1</button>
+         <button type="button" class="board__cell" data-cell-position="0 1">2</button>
+         <button type="button" class="board__cell" data-cell-position="0 2"  style="background-image: url(images/xmark.svg)">3</button>
+   
+         <button type="button" class="board__cell" data-cell-position="1 0">4</button>
+         <button type="button" class="board__cell" data-cell-position="1 1" style="background-image: url(images/circle.svg)">5</button>
+         <button type="button" class="board__cell" data-cell-position="1 2">6</button>
+   
+         <button type="button" class="board__cell" data-cell-position="2 0" style="background-image: url(images/xmark.svg)">7</button>
+         <button type="button" class="board__cell" data-cell-position="2 1">8</button>
+         <button type="button" class="board__cell" data-cell-position="2 2" style="background-image: url(images/smark.svg)">9</button>
+      </div>
+
+      <p><button type="button" id="reset-button" class="button">Reset</button></p>
+
+      <div class="players-info-container">
+         <div class="player__info">
+            <p id="player1-name">Player 1 <img src="images/xmark.svg" alt="cross symbol" class="player__img"></p> 
+            <p>points: <span id="player1-points">0</span></p>
+         </div>
+
+         <div class="player__info">
+            <p id="player2-name">Player 2 <img src="images/circle.svg" alt="cross symbol" class="player__img"></p> 
+            <p>points: <span id="player2-points">0</span></p>
+         </div>
+      </div>
+   </section>
+</body>
+</html>
