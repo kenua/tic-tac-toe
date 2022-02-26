@@ -24,15 +24,27 @@ window.addEventListener('DOMContentLoaded', () => {
       }
    }
 
+   function sanitizePlayerName(name) {
+      return name.trim().replace(/[<>\/"=]/gi, '');
+   }
+
    function setupGame() {
       let p1Name = player1NameInput.value;
       let p2Name = player2NameInput.value;
 
-      gameFlow.setup(p1Name, p2Name);
-      player1Name.innerHTML = p1Name + ' <img src="images/xmark.svg" alt="cross symbol" class="player__img">';
-      player2Name.innerHTML = p2Name + ' <img src="images/circle.svg" alt="circle symbol" class="player__img">';
-      modal.style.display = 'none';
-      highlightPlayer();
+      p1Name = sanitizePlayerName(p1Name);
+      p2Name = sanitizePlayerName(p2Name);
+
+      if ((p1Name.length > 0 && p1Name.length <= 30) &&
+          (p2Name.length > 0 && p2Name.length <= 30)) {
+            gameFlow.setup(p1Name, p2Name);
+            player1Name.innerHTML = p1Name + ' <img src="images/xmark.svg" alt="cross symbol" class="player__img">';
+            player2Name.innerHTML = p2Name + ' <img src="images/circle.svg" alt="circle symbol" class="player__img">';
+            modal.style.display = 'none';
+            highlightPlayer();
+      } else {
+         document.querySelector('#error-message').style.display = 'block';
+      }
    }
 
    function updatePlayersScore() {

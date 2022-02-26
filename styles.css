@@ -45,6 +45,12 @@
    margin-bottom: 2rem;
 }
 
+.modal .danger {
+   color: salmon;
+   margin-bottom: 2rem;
+   display: none;
+}
+
 .tictactoe-container {
    width: 100%;
    height: 100%;
