@@ -13,9 +13,11 @@
    <!-- CUSTOM -->
    <link rel="stylesheet" href="resets.css">
    <link rel="stylesheet" href="styles.css">
+   <script src="tictactoe.js" defer></script>
+   <script src="dom.js" defer></script>
 </head>
 <body>
-   <div class="modal">
+   <div id="modal" class="modal">
       <div>
          <h1>Player 1 Name</h1>
          <input type="text" id="player1-name-input" placeholder="player 1" value="player 1">
@@ -28,18 +30,18 @@
    </div>
 
    <section class="tictactoe-container">
-      <div class="tictacto-grid-board">
-         <button type="button" class="board__cell" data-cell-position="0 0" style="background-image: url(images/circle.svg)">1</button>
+      <div id="game-board" class="tictacto-grid-board">
+         <button type="button" class="board__cell" data-cell-position="0 0">1</button>
          <button type="button" class="board__cell" data-cell-position="0 1">2</button>
-         <button type="button" class="board__cell" data-cell-position="0 2"  style="background-image: url(images/xmark.svg)">3</button>
+         <button type="button" class="board__cell" data-cell-position="0 2">3</button>
    
          <button type="button" class="board__cell" data-cell-position="1 0">4</button>
-         <button type="button" class="board__cell" data-cell-position="1 1" style="background-image: url(images/circle.svg)">5</button>
+         <button type="button" class="board__cell" data-cell-position="1 1">5</button>
          <button type="button" class="board__cell" data-cell-position="1 2">6</button>
    
-         <button type="button" class="board__cell" data-cell-position="2 0" style="background-image: url(images/xmark.svg)">7</button>
+         <button type="button" class="board__cell" data-cell-position="2 0">7</button>
          <button type="button" class="board__cell" data-cell-position="2 1">8</button>
-         <button type="button" class="board__cell" data-cell-position="2 2" style="background-image: url(images/smark.svg)">9</button>
+         <button type="button" class="board__cell" data-cell-position="2 2">9</button>
       </div>
 
       <p><button type="button" id="reset-button" class="button">Reset</button></p>

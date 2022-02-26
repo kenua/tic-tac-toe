@@ -99,6 +99,8 @@
    margin-bottom: 1.3rem;
 }
 
+.player-name-highlighted { text-decoration: underline; }
+
 .player__info p:first-child {
    margin-bottom: .3rem;
    display: flex;
