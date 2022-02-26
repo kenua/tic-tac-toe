@@ -16,11 +16,11 @@ window.addEventListener('DOMContentLoaded', () => {
       let playersInfo = gameFlow.getPlayersInfo();
 
       if (playersInfo.playerTurn.name === playersInfo.player1.name) {
-         player1Name.classList.add('player-name-highlighted');
-         player2Name.classList.remove('player-name-highlighted');
+         player1Name.parentElement.classList.add('player-name-highlighted');
+         player2Name.parentElement.classList.remove('player-name-highlighted');
       } else {
-         player2Name.classList.add('player-name-highlighted');
-         player1Name.classList.remove('player-name-highlighted');
+         player2Name.parentElement.classList.add('player-name-highlighted');
+         player1Name.parentElement.classList.remove('player-name-highlighted');
       }
    }
 
@@ -47,6 +47,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
    function cleanBoardCells() {
       resetBoard = false;
+      gameBoard.classList.remove('tictacto-grid-board--winner');
+      highlightPlayer();
       tictactoe.cleanBoard();
       [...boardCells].forEach(cell => cell.style.backgroundImage = '');
    }
@@ -68,11 +70,12 @@ window.addEventListener('DOMContentLoaded', () => {
          } else if (turnResult === currentPlayer.name) {
             resetBoard = true;
             target.style.backgroundImage = `url(images/${symbol === 0 ? 'xmark' : 'circle'}.svg)`;
-            highlightPlayer();
+            gameBoard.classList.add('tictacto-grid-board--winner');
             updatePlayersScore();
          }
       } else if (resetBoard) {
          cleanBoardCells();
+         highlightPlayer();
       }
    }
 
