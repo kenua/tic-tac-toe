@@ -77,43 +77,6 @@ const tictactoe = (function() {
    return { getBoard, getBoardStr, fillCell, checkWinner, cleanBoard, };
 })();
 
-//console.log(tictactoe);
-//console.log(tictactoe.getBoard());
-//tictactoe.fillCell(1, 1, 1); // fill the center with a 'o'
-//tictactoe.fillCell(0, 0); // fill the first cell of the first row with a 'x'
-//tictactoe.fillCell(2, 2, 0); // fill the last cell of the third row with a 'x'
-//console.log(tictactoe.getBoard());
-//console.log(tictactoe.getBoardStr());
-//tictactoe.cleanBoard();
-//console.log(tictactoe.getBoardStr());
-/*
-console.log(tictactoe.checkWinner()); // false
-
-tictactoe.fillCell();
-tictactoe.fillCell(0, 1);
-tictactoe.fillCell(0, 2);
-console.log(tictactoe.getBoardStr());
-tictactoe.cleanBoard();
-
-tictactoe.fillCell(0, 0, 1);
-tictactoe.fillCell(1, 0, 1);
-tictactoe.fillCell(2, 0, 1);
-console.log(tictactoe.getBoardStr());
-tictactoe.cleanBoard();
-
-tictactoe.fillCell();
-tictactoe.fillCell(1, 1);
-tictactoe.fillCell(2, 2);
-console.log(tictactoe.getBoardStr());
-tictactoe.cleanBoard();
-
-tictactoe.fillCell(0, 2, 1);
-tictactoe.fillCell(1, 1, 1);
-tictactoe.fillCell(2, 0, 1);
-console.log(tictactoe.getBoardStr());
-console.log(tictactoe.checkWinner()); // true
-*/
-
 const Player = function(name = 'player', symbolType = 0) {
    let _name = name;
    let _points = 0;
@@ -200,26 +163,3 @@ const gameFlow = (function() {
 
    return { setup, playerWon, takeTurn, getPlayersInfo };
 })();
-
-/*
-gameFlow.setup();
-
-gameFlow.takeTurn(0,0);
-gameFlow.takeTurn(1,0);
-
-gameFlow.takeTurn(0,1);
-gameFlow.takeTurn(1,1);
-
-console.log(tictactoe.getBoardStr());
-
-console.log(gameFlow.takeTurn(0,2));
-gameFlow.takeTurn(1,2);
-
-gameFlow.takeTurn(0,2);
-gameFlow.takeTurn(1,1);
-gameFlow.takeTurn(0,2);
-gameFlow.takeTurn(1,0);
-
-console.log(tictactoe.getBoardStr());
-console.log(gameFlow.getPlayersInfo());
-*/
