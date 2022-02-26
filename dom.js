@@ -24,16 +24,9 @@ window.addEventListener('DOMContentLoaded', () => {
       }
    }
 
-   function sanitizePlayerName(name) {
-      return name.trim().replace(/[<>\/"=]/gi, '');
-   }
-
    function setupGame() {
-      let p1Name = player1NameInput.value;
-      let p2Name = player2NameInput.value;
-
-      p1Name = sanitizePlayerName(p1Name);
-      p2Name = sanitizePlayerName(p2Name);
+      let p1Name = player1NameInput.value.trim().replace(/[<>\/"=]/gi, '');;
+      let p2Name = player2NameInput.value.trim().replace(/[<>\/"=]/gi, '');;
 
       if ((p1Name.length > 0 && p1Name.length <= 30) &&
           (p2Name.length > 0 && p2Name.length <= 30)) {
